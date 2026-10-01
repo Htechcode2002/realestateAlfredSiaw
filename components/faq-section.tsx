@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, MessageSquare, PhoneCall, ShieldCheck, HelpCircle } from "lucide-react";
+import { ChevronDown, MessageSquare, PhoneCall, ShieldCheck } from "lucide-react";
 import { AGENT_INFO } from "./data/real-estate-data";
 
 interface FaqItem {
@@ -58,19 +58,19 @@ export function FaqSection() {
   };
 
   return (
-    <section id="faq" className="py-20 lg:py-28 bg-white text-zinc-900 relative border-b border-zinc-200/80">
-      {/* Expansive Full-Width Container matching previous sections */}
+    <section id="faq" className="py-14 sm:py-20 lg:py-28 bg-white text-zinc-900 relative border-b border-zinc-200/80">
+      {/* Expansive Full-Width Container */}
       <div className="mx-auto max-w-[1540px] px-4 sm:px-8 lg:px-12 w-full">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-16 items-start">
           
           {/* Left Column: Section Title & Direct Support Card */}
-          <div className="lg:col-span-5 space-y-6 lg:sticky lg:top-28">
-            <div className="space-y-3">
-              <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-zinc-400">
+          <div className="lg:col-span-5 space-y-5 sm:space-y-6 lg:sticky lg:top-28">
+            <div className="space-y-2 sm:space-y-3">
+              <p className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] text-zinc-400">
                 Frequently Asked Questions
               </p>
-              <h2 className="font-sans font-bold text-3xl sm:text-4xl lg:text-[44px] text-zinc-950 tracking-tight leading-tight">
+              <h2 className="font-sans font-bold text-2xl sm:text-3xl lg:text-[44px] text-zinc-950 tracking-tight leading-tight">
                 Clear Answers to Common Inquiries
               </h2>
               <p className="text-zinc-500 text-xs sm:text-sm font-normal leading-relaxed pt-1">
@@ -79,16 +79,16 @@ export function FaqSection() {
             </div>
 
             {/* Direct Broker Contact Card */}
-            <div className="rounded-2xl bg-stone-50 border border-zinc-200/80 p-6 sm:p-7 space-y-4">
+            <div className="rounded-2xl bg-stone-50 border border-zinc-200/80 p-4 sm:p-6 lg:p-7 space-y-3.5 sm:space-y-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-zinc-950 text-white">
-                  <ShieldCheck className="h-5 w-5 text-emerald-400" />
+                <div className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-zinc-950 text-white shrink-0">
+                  <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5 text-emerald-400" />
                 </div>
                 <div>
-                  <h3 className="font-sans text-sm font-bold text-zinc-950">
+                  <h3 className="font-sans text-xs sm:text-sm font-bold text-zinc-950">
                     Have a Confidential Question?
                   </h3>
-                  <p className="text-xs text-zinc-500">
+                  <p className="text-[11px] sm:text-xs text-zinc-500">
                     Connect directly with Alfred Siaw
                   </p>
                 </div>
@@ -98,12 +98,12 @@ export function FaqSection() {
                 Whether you need a confidential valuation for a family estate or advice on acquiring off-market land, we provide prompt, private counsel.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-1">
                 <a
                   href={`https://wa.me/${AGENT_INFO.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello Alfred, I have a question regarding prime property.")}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex-1 h-10 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-xs transition-all active:scale-95 inline-flex items-center justify-center gap-2"
+                  className="w-full sm:flex-1 h-10 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-xs transition-all active:scale-95 inline-flex items-center justify-center gap-2"
                 >
                   <MessageSquare className="h-3.5 w-3.5" />
                   <span>WhatsApp Direct</span>
@@ -111,7 +111,7 @@ export function FaqSection() {
 
                 <a
                   href={`tel:${AGENT_INFO.phone}`}
-                  className="h-10 px-4 rounded-xl bg-white hover:bg-stone-100 text-zinc-800 border border-zinc-200 font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center justify-center gap-1.5"
+                  className="w-full sm:w-auto h-10 px-4 rounded-xl bg-white hover:bg-stone-100 text-zinc-800 border border-zinc-200 font-bold text-xs uppercase tracking-wider transition-all inline-flex items-center justify-center gap-1.5"
                 >
                   <PhoneCall className="h-3.5 w-3.5 text-zinc-500" />
                   <span>Call Line</span>
@@ -121,7 +121,7 @@ export function FaqSection() {
           </div>
 
           {/* Right Column: Clean Minimalist Accordion */}
-          <div className="lg:col-span-7 space-y-4">
+          <div className="lg:col-span-7 space-y-3 sm:space-y-4">
             {FAQ_LIST.map((faq) => {
               const isOpen = openId === faq.id;
               return (
@@ -135,27 +135,27 @@ export function FaqSection() {
                 >
                   <button
                     onClick={() => toggle(faq.id)}
-                    className="flex w-full items-center justify-between p-6 sm:p-7 text-left transition-colors cursor-pointer group"
+                    className="flex w-full items-center justify-between p-4 sm:p-6 lg:p-7 text-left transition-colors cursor-pointer group"
                   >
-                    <div className="flex items-start gap-4 pr-4">
-                      <span className="font-mono text-xs font-bold text-zinc-400 group-hover:text-zinc-900 transition-colors pt-0.5">
+                    <div className="flex items-start gap-3 sm:gap-4 pr-3">
+                      <span className="font-mono text-xs font-bold text-zinc-400 group-hover:text-zinc-900 transition-colors pt-0.5 shrink-0">
                         {faq.number}
                       </span>
-                      <span className="font-sans text-sm sm:text-base font-bold text-zinc-900 group-hover:text-amber-900 transition-colors leading-snug">
+                      <span className="font-sans text-xs sm:text-sm lg:text-base font-bold text-zinc-900 group-hover:text-amber-900 transition-colors leading-snug">
                         {faq.q}
                       </span>
                     </div>
 
-                    <div className={`flex h-8 w-8 items-center justify-center rounded-full transition-transform duration-300 shrink-0 ${
+                    <div className={`flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-full transition-transform duration-300 shrink-0 ${
                       isOpen ? "bg-zinc-950 text-white rotate-180" : "bg-stone-200/70 text-zinc-600"
                     }`}>
-                      <ChevronDown className="h-4 w-4" />
+                      <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </div>
                   </button>
 
                   {isOpen && (
-                    <div className="px-6 sm:px-7 pb-6 pt-0 border-t border-zinc-100">
-                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal pt-4">
+                    <div className="px-4 sm:px-6 lg:px-7 pb-4 sm:pb-6 pt-0 border-t border-zinc-100">
+                      <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal pt-3 sm:pt-4">
                         {faq.a}
                       </p>
                     </div>

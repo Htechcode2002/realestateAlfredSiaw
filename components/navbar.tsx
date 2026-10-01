@@ -144,49 +144,64 @@ export function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="border-t border-white/10 bg-[#0b131e]/95 backdrop-blur-xl px-5 py-6 shadow-2xl lg:hidden animate-in fade-in duration-200 text-white">
-          <div className="flex flex-col space-y-4 text-sm font-medium">
+        <div className="border-t border-white/10 bg-[#070d17]/98 backdrop-blur-2xl px-5 py-6 shadow-2xl lg:hidden animate-in fade-in slide-in-from-top-2 duration-200 text-white">
+          <div className="flex flex-col space-y-1 text-sm font-medium">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 window.scrollTo({ top: 0, behavior: "smooth" });
               }}
-              className="text-left font-bold text-emerald-400 py-1"
+              className="flex items-center justify-between text-left font-bold text-emerald-400 py-3 border-b border-white/10 text-base"
             >
-              Home
+              <span>Home</span>
+              <span className="text-xs text-emerald-400/80">● Active</span>
             </button>
             <button
               onClick={() => scrollTo("services")}
-              className="text-left hover:text-white py-1 text-zinc-200"
+              className="flex items-center justify-between text-left hover:text-white py-3 border-b border-white/10 text-zinc-200 text-sm active:bg-white/5 rounded-lg px-1 transition"
             >
-              Services
+              <span>Services</span>
+              <span className="text-xs text-zinc-500">4 Advisory Areas</span>
             </button>
             <button
               onClick={() => scrollTo("closings")}
-              className="text-left hover:text-white py-1 text-zinc-200"
+              className="flex items-center justify-between text-left hover:text-white py-3 border-b border-white/10 text-zinc-200 text-sm active:bg-white/5 rounded-lg px-1 transition"
             >
-              Recent Sales &amp; Closings
+              <span>Recent Sales &amp; Closings</span>
+              <span className="text-xs text-amber-300 font-semibold">RM 680M+</span>
             </button>
             <button
               onClick={() => scrollTo("testimonials")}
-              className="text-left hover:text-white py-1 text-zinc-200"
+              className="flex items-center justify-between text-left hover:text-white py-3 border-b border-white/10 text-zinc-200 text-sm active:bg-white/5 rounded-lg px-1 transition"
             >
-              Client Testimonials
+              <span>Client Testimonials</span>
+              <span className="text-xs text-amber-400">5.0 ★</span>
             </button>
             <button
               onClick={() => scrollTo("faq")}
-              className="text-left hover:text-white py-1 text-zinc-200"
+              className="flex items-center justify-between text-left hover:text-white py-3 border-b border-white/10 text-zinc-200 text-sm active:bg-white/5 rounded-lg px-1 transition"
             >
-              Frequently Asked Questions
+              <span>Frequently Asked Questions</span>
+              <span className="text-xs text-zinc-500">FAQ</span>
             </button>
 
-            <div className="pt-4 border-t border-white/10">
+            {/* Mobile Contact Quick Actions */}
+            <div className="pt-5 space-y-2.5">
+              <a
+                href={`https://wa.me/${AGENT_INFO.whatsapp.replace(/[^0-9]/g, "")}?text=${encodeURIComponent("Hello Alfred, I am visiting your mobile website and would like to consult.")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center gap-2 w-full h-11 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition"
+              >
+                <span>WhatsApp Alfred Directly</span>
+              </a>
+
               <a
                 href={`tel:${AGENT_INFO.phone}`}
-                className="flex items-center gap-2 text-sm font-bold text-white font-mono"
+                className="flex items-center justify-center gap-2 w-full h-10 rounded-xl bg-white/10 border border-white/20 text-white font-mono text-xs font-semibold hover:bg-white/20 active:scale-95 transition"
               >
                 <Phone className="h-3.5 w-3.5 text-emerald-400" />
-                {AGENT_INFO.phone}
+                <span>Call {AGENT_INFO.phone}</span>
               </a>
             </div>
           </div>
